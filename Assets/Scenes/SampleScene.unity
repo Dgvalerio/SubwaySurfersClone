@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de08aa76bbae3b04fbc23d8d36fdc7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 16
   jumpHeight: 45
   gravity: 0.2
 --- !u!143 &267444895
@@ -469,6 +469,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058964618}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1308033803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308033804}
+  - component: {fileID: 1308033805}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308033804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308033803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308033805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308033803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2596d6bb5840d94b9bcb35cc1cd8a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms:
+  - {fileID: 26364785887335239, guid: 377802002dc233c4ea91371b4287d7ea, type: 3}
+  - {fileID: 2156329574642434149, guid: 65e73dfb953f63d42ae5b9f37c62beef, type: 3}
+  - {fileID: 345397739903469392, guid: 4cf4913fdf171c849829d3c1ceb6d628, type: 3}
+  platformDistance: 0
+  myPlat: {fileID: 26364785887335239, guid: 377802002dc233c4ea91371b4287d7ea, type: 3}
 --- !u!1001 &26364785904395476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,6 +687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Part_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 345397739903469392, guid: 4cf4913fdf171c849829d3c1ceb6d628,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090240647201761507, guid: 4cf4913fdf171c849829d3c1ceb6d628,
         type: 3}
