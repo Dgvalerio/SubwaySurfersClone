@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public float jumpHeight;
     public float gravity;
     
+    public float horizontalSpeed;
+    private bool _isMovingRight;
+    private bool _isMovingLeft;
+    
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -26,6 +30,16 @@ public class Player : MonoBehaviour
             {
                 _jumpVelocity = jumpHeight;
             }
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < 5f && !_isMovingRight)
+            {
+                _isMovingRight = true;
+                StartCoroutine(RightMove());
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > -5f && !_isMovingLeft)
+            {
+                _isMovingLeft = true;
+                StartCoroutine(LeftMove());
+            }
         }
         else
         {
@@ -35,5 +49,27 @@ public class Player : MonoBehaviour
         direction.y = _jumpVelocity;
 
         _controller.Move(direction * Time.deltaTime);
+    }
+
+    private IEnumerator LeftMove()
+    {
+        for (float i = 0; i < 10; i += 0.1f)
+        {
+            _controller.Move(Time.deltaTime * horizontalSpeed * Vector3.left);
+            yield return null;
+        }
+
+        _isMovingLeft = false;
+    }
+
+    private IEnumerator RightMove()
+    {
+        for (float i = 0; i < 10; i += 0.1f)
+        {
+            _controller.Move(Time.deltaTime * horizontalSpeed * Vector3.right);
+            yield return null;
+        }
+
+        _isMovingRight = false;
     }
 }
